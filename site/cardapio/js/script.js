@@ -1,9 +1,7 @@
 
-import { cardapio } from '../../backend/pedido.js';
+import { cardapio } from '../../avaliacoes/script.js';
 
 console.log(cardapio)
-
-
 
 
 
@@ -49,15 +47,15 @@ $(document).ready(function() {
   });
 });
 
-let carrinhos = [];
+let carrinho = [];
 
 // Função para adicionar itens ao carrinho (Create)
 function adicionarAoCarrinho(prato, preco) {
-    const item = carrinhos.find(i => i.prato === prato);
+    const item = carrinho.find(i => i.prato === prato);
     if (item) {
         item.quantidade++;  // Se o prato já está no carrinho, aumenta a quantidade
     } else {
-        carrinhos.push({ prato: prato, preco: preco, quantidade: 1 });
+        carrinho.push({ prato: prato, preco: preco, quantidade: 1 });
     }
     renderCarrinho(); // Atualiza o carrinho na interface
 }
@@ -84,20 +82,21 @@ function renderCarrinho() {
 }
 
 // Função para atualizar a quantidade de um item no carrinho (Update)
-function atualizarQuantidade(index, operacao) {
-    if (operacao === 'mais') {
-        carrinho[index].quantidade++;
-    } else if (operacao === 'menos' && carrinho[index].quantidade > 1) {
-        carrinho[index].quantidade--;
-    }
-    renderCarrinho(); // Atualiza o carrinho
-}
+window.atualizarQuantidade = function(index, operacao) {
+  if (operacao === 'mais') {
+      carrinho[index].quantidade++;
+  } else if (operacao === 'menos' && carrinho[index].quantidade > 1) {
+      carrinho[index].quantidade--;
+  }
+  renderCarrinho(); // Atualiza o carrinho
+};
 
 // Função para remover um item do carrinho (Delete)
-function removerDoCarrinho(index) {
-    carrinho.splice(index, 1);  // Remove o item pelo índice
-    renderCarrinho();  // Atualiza o carrinho na interface
-}
+window.removerDoCarrinho = function(index) { // Definindo como global
+  carrinho.splice(index, 1);  // Remove o item pelo índice
+  renderCarrinho();  // Atualiza o carrinho na interface
+};
+
 
 // Função para limpar o carrinho
 function limparCarrinho() {
@@ -127,13 +126,13 @@ window.onload = function aparecerCardapio(){
           <i class="fa-solid fa-heart heart-icon"></i>
         </div>
 
-        <img src="img/${pratos[0]}.png" class="dish-image" alt="">
+        <img src="${cardapio[0].img}" class="dish-image" alt="">
         <h3 class="dish-title">
-        ${pratos[0]}
+        ${cardapio[0].nome}
         </h3>
 
         <span class="dish-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        ${cardapio[0].descricao}
         </span>
 
         <div class="dish-rate">
@@ -158,13 +157,13 @@ window.onload = function aparecerCardapio(){
           <i class="fa-solid fa-heart heart-icon"></i>
         </div>
 
-        <img src="img/${pratos[1]}.png" class="dish-image" alt="">
+        <img src="${cardapio[1].img}" class="dish-image" alt="">
         <h3 class="dish-title">
-        ${pratos[1]}
+        ${cardapio[1].nome}
         </h3>
 
         <span class="dish-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        ${cardapio[1].descricao}
         </span>
 
         <div class="dish-rate">
@@ -188,13 +187,13 @@ window.onload = function aparecerCardapio(){
           <i class="fa-solid fa-heart heart-icon"></i>
         </div>
 
-        <img src="img/${pratos[2]}.png" class="dish-image" alt="">
+        <img src="${cardapio[2].img}" class="dish-image" alt="">
         <h3 class="dish-title">
-        ${pratos[2]}
+        ${cardapio[2].nome}
         </h3>
 
         <span class="dish-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        ${cardapio[2].descricao}
         </span>
 
         <div class="dish-rate">
@@ -218,9 +217,9 @@ window.onload = function aparecerCardapio(){
           <i class="fa-solid fa-heart heart-icon"></i>
         </div>
 
-        <img src="img/${pratos[3]}.png" class="dish-image" alt="">
+        <img src="${cardapio[3].img}" class="dish-image" alt="">
         <h3 class="dish-title">
-        ${pratos[3]}
+        ${cardapio[3].nome}
         </h3>
 
         <span class="dish-description">

@@ -25,7 +25,7 @@ export let comentarios: Comentario[] = [];
 export const cardapio: ItemDoCardapio[] = [
   //C1
   {
-    img: `\img\salmao.png`,
+    img: `img/Salmão Teryaki.png`,
     favorito: false,
     id: 0,
     nome: "Salmão Teryaki",
@@ -37,7 +37,7 @@ export const cardapio: ItemDoCardapio[] = [
   //C2
 
   {
-    img: "imgPão Indiano.png",
+    img: "img/Pão Indiano.png",
     favorito: false,
     id: 1,
     nome: "Pão Indiano",
@@ -47,26 +47,25 @@ export const cardapio: ItemDoCardapio[] = [
   },
 
   //C3
-
   {
-    img: "imgcereal.png",
+    img: "img/Lamen.png",
     favorito: false,
     id: 2,
-    nome: "Cereal",
-    descricao: "Mistura de cereais crocantes, servido com leite ou iogurte.",
-    valor: 15.0,
+    nome: "Lamen",
+    descricao:
+      "Macarrão japonês em caldo, acompanhado de carne, ovo e vegetais.",
+    valor: 20.0,
   },
 
   //C4
 
   {
-    img: "imgLamen.png",
+    img: "img/cereal.png",
     favorito: false,
     id: 3,
-    nome: "Lamen",
-    descricao:
-      "Macarrão japonês em caldo, acompanhado de carne, ovo e vegetais.",
-    valor: 20.0,
+    nome: "Cereal",
+    descricao: "Mistura de cereais crocantes, servido com leite ou iogurte.",
+    valor: 15.0,
   },
 ];
 
@@ -121,22 +120,16 @@ export function adicionarComentario(texto: string) {
   return novoTexto;
 }
 
-console.log(adicionarComentario("Bom"));
-console.log(adicionarComentario("Otimo"));
-
 // REMOVER COMENTATRIO
 
-export function removerComentario(id: number) {
-  let comentarioEcontrado: boolean;
+export function removerComentario(id: number): boolean {
+  let comentarioEcontrado: boolean = false;
 
   comentarios.forEach((comentario) => {
-    if (comentario.id !== id) {
+    if (comentario.id === id) {
       comentarios.splice(comentario.id, 1);
-      comentarioEcontrado = false;
+      comentarioEcontrado = true;
     }
   });
   return comentarioEcontrado;
 }
-
-console.log("===================");
-console.log(removerComentario(1));

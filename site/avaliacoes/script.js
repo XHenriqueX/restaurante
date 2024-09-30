@@ -1,44 +1,58 @@
+// Definições de tipos substituídas por objetos comuns
+
 let carrinho = [];
 let comentarios = [];
 
 const cardapio = [
+  //C1
   {
-    img: `img/salmao.png`,
+    img: "img/Salmão Teryaki.png",
     favorito: false,
     id: 0,
     nome: "Salmão Teryaki",
-    descricao: "Filé de salmão grelhado com molho teriyaki, acompanhado de arroz e vegetais.",
+    descricao:
+      "Filé de salmão grelhado com molho teriyaki, acompanhado de arroz e vegetais.",
     valor: 20.0,
   },
+
+  //C2
   {
-    img: "img/imgPão Indiano.png",
+    img: "img/Pão Indiano.png",
     favorito: false,
     id: 1,
     nome: "Pão Indiano",
-    descricao: "Pão típico da Índia, macio e levemente tostado, ideal para acompanhar pratos com molho.",
+    descricao:
+      "Pão típico da Índia, macio e levemente tostado, ideal para acompanhar pratos com molho.",
     valor: 25.0,
   },
+
+  //C3
   {
-    img: "img/imgcereal.png",
+    img: "img/Lamen.png",
     favorito: false,
     id: 2,
+    nome: "Lamen",
+    descricao:
+      "Macarrão japonês em caldo, acompanhado de carne, ovo e vegetais.",
+    valor: 20.0,
+  },
+
+  //C4
+  {
+    img: "img/cereal.png",
+    favorito: false,
+    id: 3,
     nome: "Cereal",
     descricao: "Mistura de cereais crocantes, servido com leite ou iogurte.",
     valor: 15.0,
   },
-  {
-    img: "img/imgLamen.png",
-    favorito: false,
-    id: 3,
-    nome: "Lamen",
-    descricao: "Macarrão japonês em caldo, acompanhado de carne, ovo e vegetais.",
-    valor: 20.0,
-  },
 ];
 
-// Adicionar ao carrinho
-export function adicionarACesta(nome, quantidade) {
-  for (let comida of cardapio) {
+// Criar carrinho
+function adicionarACesta(nome, quantidade) {
+  for (let i = 0; i < cardapio.length; i++) {
+    let comida = cardapio[i];
+
     if (comida.nome === nome) {
       let novoCarrinho = {
         idComida: comida.id,
@@ -51,22 +65,22 @@ export function adicionarACesta(nome, quantidade) {
   }
 }
 
-// Adicionar favoritagem
-export function adicionarFavoritagem(id) {
+// Adicionar e remover favoritagem
+function adicionarFavoritagem(id) {
   let pratoEncontrado;
 
   cardapio.forEach((prato) => {
-    if (prato.id === id) {
-      prato.favorito = !prato.favorito;
-      pratoEncontrado = prato;
-    }
+    if (prato.id !== id) return;
+
+    prato.favorito = !prato.favorito;
+    pratoEncontrado = prato;
   });
 
   return pratoEncontrado;
 }
 
 // Adicionar comentário
-export function adicionarComentario(texto) {
+function adicionarComentario(texto) {
   let novoTexto = {
     id: comentarios.length,
     comentario: texto,
@@ -76,26 +90,26 @@ export function adicionarComentario(texto) {
   return novoTexto;
 }
 
-console.log(adicionarComentario("Bom"));
-console.log(adicionarComentario("Otimo"));
-
 // Remover comentário
-export function removerComentario(id) {
+function removerComentario(id) {
   let comentarioEncontrado = false;
 
-  comentarios = comentarios.filter((comentario) => {
+  comentarios.forEach((comentario, index) => {
     if (comentario.id === id) {
+      comentarios.splice(index, 1);
       comentarioEncontrado = true;
-      return false; // Remove o comentário
     }
-    return true; // Mantém o comentário
   });
-
   return comentarioEncontrado;
 }
 
-console.log("===================");
-console.log(removerComentario(1));
-
-// Exportar variáveis
-export { carrinho, comentarios, cardapio };
+// Exportações
+export {
+  carrinho,
+  comentarios,
+  cardapio,
+  adicionarACesta,
+  adicionarFavoritagem,
+  adicionarComentario,
+  removerComentario,
+};
