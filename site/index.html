@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Landing page</title>
+</head>
+
+<body>
+  <header>
+    <a href="./index.html" id="voltarMenu">
+    <nav id="navbar">
+      <i class="fa-solid fa-burger" id="nav_logo">FOOD</i></a>
+
+      <ul id="nav_list">
+        <li class="nav-item active">
+          <a href="#content">Início</a>
+        </li>
+        <li class="nav-item">
+          <a href="#menu">Cardápio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#testimonials">Avaliações</a>
+        </li>
+      </ul>
+
+      <button onclick="verCardapio()" class="btn-default">Peça aqui</button>
+
+      <button id="mobile_btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <div id="mobile_menu">
+      <ul id="mobile_nav_list">
+        <li class="nav-item">
+          <a href="#home">Início</a>
+        </li>
+        <li class="nav-item">
+          <a href="#menu">Cardápio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#testimonials">Avaliações</a>
+        </li>
+      </ul>
+
+      <button onclick="verCardapio()" class="btn-default">Peça aqui</button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section id="home">
+      <div class="shape"></div>
+      <div id="cta">
+        <h1 class="title">
+          O sabor vai até
+          <span>você</span>
+        </h1>
+
+        <p class="description">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis natus illum distinctio, molestiae officia
+          dolores similique ab dolorem.
+        </p>
+
+        <div id="cta_buttons">
+          <a href="cardapio/index.html" id="verCardapio" class="btn-default">
+            Ver Cardápio
+          </a>
+
+          <a href="https://wa.me/558393906786" id="phone_button">
+            <button class="btn-default">
+              <i class="fa-solid fa-phone"></i>
+            </button>
+            (83) 99390-6786
+          </a>
+        </div>
+
+        <div class="social-media-buttons">
+          <a href=" https://wa.me/558393906786">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/?locale=pt_BR">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+
+      <div id="banner">
+        <img src="img/frutas-.png" id="imgHome" alt="">
+      </div>
+    </section>
+
+    <section id="menu">
+      <div id="ajusteMenu"></div>
+      <h2 class="section-title">Cardápio</h2>
+      <h3 class="section-subtitle">Nossos pratos especiais</h3>
+
+      <div id="dishes">
+        <div class="dish">
+          <div onclick="favoritar()" class="dish-heart">
+            <i class="fa-solid fa-heart heart-icon"></i>
+          </div>
+
+          <img src="img/salmao.png" class="dish-image" alt="">
+          <h3 class="dish-title">
+            Salmão Teryaki
+          </h3>
+
+          <span class="dish-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </span>
+
+          <div class="dish-rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(500+)</span>
+          </div>
+
+          <h4>R$20.00</h4>
+          <div class="dish-prise">
+            <button onclick="verCardapio()" class="btn-default">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="dish">
+          <div class="dish-heart">
+            <i class="fa-solid fa-heart heart-icon"></i>
+          </div>
+
+          <img src="img/panqueca.png" class="dish-image" alt="">
+          <h3 class="dish-title">
+            Pão Indiano
+          </h3>
+
+          <span class="dish-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </span>
+
+          <div class="dish-rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(500+)</span>
+          </div>
+
+          <h4>R$25.00</h4>
+          <div class="dish-prise">
+            <button onclick="verCardapio()" class="btn-default">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </button>
+          </div>
+        </div>
+        <div class="dish">
+          <div class="dish-heart">
+            <i class="fa-solid fa-heart heart-icon"></i>
+          </div>
+
+          <img src="img/lamen.png" class="dish-image" alt="">
+          <h3 class="dish-title">
+            Lamen
+          </h3>
+
+          <span class="dish-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </span>
+
+          <div class="dish-rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(500+)</span>
+          </div>
+          <h4>R$20.00</h4>
+          <div class="dish-prise">
+            <button onclick="verCardapio()" class="btn-default">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="dish">
+          <div class="dish-heart">
+            <i class="fa-solid fa-heart heart-icon"></i>
+          </div>
+
+          <img src="img/cereal.png" class="dish-image" alt="">
+          <h3 class="dish-title">
+            Cereal
+          </h3>
+
+          <span class="dish-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </span>
+
+          <div class="dish-rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(500+)</span>
+          </div>
+
+          <h4>R$15.00</h4>
+          <div class="dish-prise">
+            <button onclick="verCardapio()" class="btn-default">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="chef"><img src="img/miquel-ferran-gomez-figueroa.png" id="testimonials_chef" alt=""></div>
+      <div id="testimonials_content">
+        <h2 class="section-title">
+          depoimentos
+        </h2>
+        <h3 class="section-subtitle">
+          O que os clientes falam sobre nós
+        </h3>
+
+        <div id="feedbacks">
+
+          <div class="feedback">
+            <img src="img/emilygarland.jpg" class="feedback-avatar" alt="">
+
+            <div class="feedback-content">
+              <p>
+                Fulana de Tal
+                <span>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                </span>
+              </p>
+
+              <p>
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem rerum ducimus sit facere
+                nihil,
+                laudantium praesentium numquam! Voluptatem reiciendis totam modi in inventore. Natus nemo assumenda
+                illum
+                sapiente illo libero."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="feedbacks">
+          <div class="feedback">
+            <img src="img/emilygarland.jpg" class="feedback-avatar" alt="">
+
+            <div class="feedback-content">
+              <p>
+                Fulana de Tal
+                <span>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                  <i class="fa-solid fa-star" id="star"></i>
+                </span>
+              </p>
+
+              <p>
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem rerum ducimus sit facere
+                nihil,
+                laudantium praesentium numquam! Voluptatem reiciendis totam modi in inventore. Natus nemo assumenda
+                illum
+                sapiente illo libero."
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+        <a href="avaliacoes/index.html">
+        <button class="btn-default">
+          Ver mais Avaliações
+        </button>
+        </a>
+    </section>
+  </main>
+  <footer>
+    <img src="img/wave.png" alt="">
+
+    <div id="footer_itens">
+      <span id="copyright">
+        &copy 2024 Henrique Souza
+      </span>
+      <div class="social-media-buttons">
+        <a href=" https://wa.me/558393906786">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/?locale=pt_BR">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
